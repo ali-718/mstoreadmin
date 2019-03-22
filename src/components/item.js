@@ -39,7 +39,7 @@ export default class Item extends Component {
    
         this.setState(state => {
           return {
-            progress: state.progress + 0.02,
+            progress: state.progress + 0.01,
           };
         });
       }, 5);
@@ -82,7 +82,7 @@ export default class Item extends Component {
             margin:10,
             flexGrow: 1,
           }}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" style={{fontSize:20}} />
             </TouchableOpacity>
           </View>
@@ -92,7 +92,7 @@ export default class Item extends Component {
             flexGrow: 1,
             justifyContent: 'center',
           }}>
-              <Image source={Logo} style={{height:40,width:110}} />
+              <Image source={Logo} style={{height:30,width:80}} />
           </View>
         </View>
         {/* Header ends here */}

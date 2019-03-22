@@ -7,18 +7,29 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
 import Home from './src/components/Home';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Item from './src/components/item';
+import ItemDetail from './src/components/ItemDetail';
+import Order from './src/components/Orders';
+import OrderDetail from './src/components/OrderDetail';
 
 const Stacker = createStackNavigator({
+  Order:{
+    screen:Order
+  },
   Home:{
     screen:Home
+  },
+  ItemDetail:{
+    screen:ItemDetail
   },
   Item:{
     screen:Item
   },
+  OrderDetail:{
+    screen:OrderDetail
+  }
 },
 {
   headerMode:"none"

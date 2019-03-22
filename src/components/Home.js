@@ -34,7 +34,7 @@ export default class Home extends Component {
             flexGrow: 1,
             justifyContent: 'center',
           }}>
-              <Image source={Logo} style={{height:40,width:110}} />
+              <Image source={Logo} style={{height:30,width:80}} />
           </View>
         </View>
         {/* Header ends here */}
@@ -243,7 +243,14 @@ export default class Home extends Component {
         {/* Pending Orders */}
         <View style={{width:"100%",alignItems: 'center',marginTop:30,marginBottom:30,flex:1}}>
         <View style={{width:"90%"}}>
-        <Text style={{color:"black",fontSize:20,marginBottom:5}}>Pending Orders</Text>
+        <View style={{flexDirection:"row",width:"100%",marginBottom:10}}>
+            <View style={{width:"50%",alignItems:"flex-start"}}>
+            <Text style={{color:"black",fontSize:20,marginBottom:5}}>Pending Orders</Text>
+            </View>
+            <View style={{width:"50%",alignItems:"flex-end",justifyContent: 'center',}}>
+            <Text style={{color:"black",fontSize:10,marginBottom:5}}>Show all ></Text>
+            </View>
+        </View>
           <ScrollView nestedScrollEnabled={true} style={{height:300}}>
             <Separator bordered>
                 <Text>USA</Text>
@@ -301,7 +308,16 @@ export default class Home extends Component {
      {/* Top trending items */}
      <View style={{width:"100%",alignItems:"center",marginBottom:20}}>
        <View style={{width:"90%"}}>
-        <Text style={{color:"black",fontSize:20,marginBottom:5}}>Top Products</Text>
+       <View style={{flexDirection:"row",width:"100%"}}>
+            <View style={{width:"50%",alignItems:"flex-start"}}>
+            <Text style={{color:"black",fontSize:20,marginBottom:5}}>Top Products</Text>
+            </View>
+            <View style={{width:"50%",alignItems:"flex-end",justifyContent: 'center',}}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('ItemDetail')}>
+                    <Text style={{color:"black",fontSize:10,marginBottom:5}}>Show all ></Text>
+                </TouchableOpacity>
+            </View>
+        </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Item',{Picture:Shirt,Name:"Armani Shirt made by Armani",Popularity:0.78})} style={{marginLeft:10,marginTop:10,alignItems: 'center',}}>
                     <Image source={Shirt} style={{width:150, height:200}} />
