@@ -34,7 +34,7 @@ export default class ItemDetail extends Component {
   }
 
   onBackButtonPressAndroid = () => {
-    this.props.navigation.navigate('Home',{Lang:this.state.Lang})
+    this.props.navigation.goBack()
     return true
     }
 
@@ -43,11 +43,6 @@ export default class ItemDetail extends Component {
     this._willBlurSubscription && this._willBlurSubscription.remove();
   }
 
-  
-  static navigationOptions = {
-    drawerLabel:() => null
-  }
-  
   render() {
 
 

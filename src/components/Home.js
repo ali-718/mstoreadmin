@@ -247,9 +247,9 @@ export default class Home extends Component {
             <View style={{width:"50%",alignItems:"flex-start"}}>
             <Text style={{color:"black",fontSize:20,marginBottom:5}}>Pending Orders</Text>
             </View>
-            <View style={{width:"50%",alignItems:"flex-end",justifyContent: 'center',}}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Order')} style={{width:"50%",alignItems:"flex-end",justifyContent: 'center',}}>
             <Text style={{color:"black",fontSize:10,marginBottom:5}}>Show all ></Text>
-            </View>
+            </TouchableOpacity>
         </View>
           <ScrollView nestedScrollEnabled={true} style={{height:300}}>
             <Separator bordered>

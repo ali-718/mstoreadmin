@@ -15,11 +15,11 @@ import Order from './src/components/Orders';
 import OrderDetail from './src/components/OrderDetail';
 
 const Stacker = createStackNavigator({
-  Order:{
-    screen:Order
-  },
   Home:{
     screen:Home
+  },
+  Order:{
+    screen:Order
   },
   ItemDetail:{
     screen:ItemDetail

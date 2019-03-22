@@ -37,7 +37,7 @@ export default class Orders extends Component {
     }
   
     onBackButtonPressAndroid = () => {
-        this.props.navigation.navigate('Home',{Lang:this.state.Lang})
+        this.props.navigation.goBack()
         return true
       }
   

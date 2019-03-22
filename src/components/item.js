@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Platform,TextInput, StyleSheet,Text, View,Image,TouchableOpacity,SafeAreaView,BackHandler,Dimensions,ScrollView,ImageBackground} from 'react-native';
-import {Header,Button,Input,Left,Body,Right,Icon,Footer,FooterTab,Container,Tabs,TabHeading,Tab} from 'native-base'
+import {Icon} from 'native-base'
 import Modal from "react-native-modal";
 import AutoHeightImage from 'react-native-auto-height-image';
 import AnimatedBar from "react-native-animated-bar";
@@ -9,15 +9,10 @@ import Logo from '../Assets/Images/logo.png';
 export default class Item extends Component {
 
     state = {
-        HeartColor:"grey",
         isModalVisible:false,
         ImageHeight:"100%",
         progress:0
     }
-    static navigationOptions = {
-        drawerLabel:() => null
-    }
-
  
     _didFocusSubscription;
     _willBlurSubscription;
@@ -46,7 +41,7 @@ export default class Item extends Component {
     }
 
     onBackButtonPressAndroid = () => {
-      this.props.navigation.navigate('Home')
+      this.props.navigation.goBack()
       return true
       }
   
@@ -55,20 +50,6 @@ export default class Item extends Component {
       this._willBlurSubscription && this._willBlurSubscription.remove();
     }
   
-    HeartColor = () =>{
-        if(this.state.HeartColor == "grey")
-        {
-          this.setState({
-            HeartColor:"red"
-          })
-        }
-        else{
-          this.setState({
-            HeartColor:"grey"
-          })
-        }
-      }
-
   render() {
 
     const  Picture = this.props.navigation.getParam('Picture')
