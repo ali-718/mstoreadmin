@@ -13,8 +13,16 @@ import Item from './src/components/item';
 import ItemDetail from './src/components/ItemDetail';
 import Order from './src/components/Orders';
 import OrderDetail from './src/components/OrderDetail';
+import Login from './src/components/Login';
+import Splash from './src/components/splashscreen';
 
 const Stacker = createStackNavigator({
+  Splash:{
+    screen:Splash
+  },
+  Login:{
+    screen:Login
+  },
   Home:{
     screen:Home
   },

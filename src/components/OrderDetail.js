@@ -5,11 +5,17 @@ import Modal from "react-native-modal";
 import AutoHeightImage from 'react-native-auto-height-image';
 import Logo from '../Assets/Images/logo.png';
 
+
+var Height = 0
+var HeightaArray = []
+var Heights = ""
+
 export default class OrderDetail extends Component {
 
     state = {
         isModalVisible:false,
         ImageHeight:"100%",
+        Size:0
     }
  
     _didFocusSubscription;
@@ -26,6 +32,13 @@ export default class OrderDetail extends Component {
       this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>
         BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
       );
+
+      Height = this.props.navigation.getParam("Address").split(" ");
+      Heights = HeightaArray.concat(Height)
+
+      this.setState({
+        Size:Heights.length * 4
+      })
     }
 
     onBackButtonPressAndroid = () => {
@@ -80,7 +93,7 @@ export default class OrderDetail extends Component {
         {/* Modal ends */}
 
         {/* Body starts */}
-        <ScrollView style={{flex:1,width:"100%",marginBottom:20}}>
+        <ScrollView style={{flex:1,width:"100%",marginBottom:30}}>
             <View style={{width:'100%',alignItems:"center",flex:1}}>
                 <View style={{width:"100%"}}>
                    <TouchableOpacity onPress={() => {this.setState({isModalVisible:!this.state.isModalVisible})}} style={{alignItems: 'center',}} activeOpacity={0.8}>
@@ -98,53 +111,55 @@ export default class OrderDetail extends Component {
                 </View>
             </View>
             
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>Country :-</Text>
                 </View>
                 <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("Country")}</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>City :-</Text>
                 </View>
                 <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("City")}</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>Buyer name :-</Text>
                 </View>
                 <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("Buyer_Name")}</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>Payment method :-</Text>
                 </View>
                 <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("Payment_Method")}</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>Quantity :-</Text>
                 </View>
                 <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("Quantity")}</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
                 <View style={{marginLeft:20}}>
                     <Text style={{color:"black",fontSize:15}}>Payment :-</Text>
                 </View>
                 <Text style={{color:this.props.navigation.getParam("Payment") == "Paid" ? "green" : "red",fontWeight:"bold",marginLeft:10,fontSize:15}}>{this.props.navigation.getParam("Payment")}</Text>
             </View>
 
-            <View style={{width:"60%",alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',}}>
-                <View style={{marginLeft:20}}>
-                    <Text style={{color:"black",fontSize:15}}>Address :-</Text>
+            <View style={{width:"100%",height:this.state.Size,marginTop:10,borderBottomWidth: 0.5,borderBottomColor: "gainsboro",justifyContent: 'center',}}>
+                <View style={{width:"70%",flexDirection:"row",alignItems:'center'}}>
+                  <View style={{marginLeft:20}}>
+                      <Text style={{color:"black",fontSize:15}}>Address :-</Text>
+                  </View>
+                  <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:12}}>{this.props.navigation.getParam("Address")}</Text>
                 </View>
-                <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:12}}>{this.props.navigation.getParam("Address")}</Text>
             </View>
                
 

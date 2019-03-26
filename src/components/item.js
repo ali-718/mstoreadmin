@@ -118,11 +118,11 @@ export default class Item extends Component {
                 </View>
             </View>
             
-            <View style={{width:"100%",alignItems:'center',marginTop:30}}>
-                <View style={{width:"80%"}}>
-                    <Text style={{color:"black",fontSize:20,marginBottom:5}}>Popularity :-</Text>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
+                <View style={{marginLeft:20}}>
+                    <Text style={{color:"black",fontSize:15}}>Popularity :-</Text>
                 </View>
-                    <View style={{width:"80%", flexDirection:"row"}}>
+                <View style={{width:"80%", flexDirection:"row",paddingLeft: 10,}}>
                         <AnimatedBar
                             progress={this.state.progress}
                             height={20}
@@ -136,18 +136,18 @@ export default class Item extends Component {
                 </View>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:30}}>
-                <View style={{width:"80%"}}>
-                    <Text style={{color:"black",fontSize:20,marginBottom:5}}>Total Sold :-</Text>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
+                <View style={{marginLeft:20}}>
+                    <Text style={{color:"black",fontSize:15}}>Total Sold :-</Text>
                 </View>
-                <Text style={{color:"black",fontWeight:"bold"}}>48 Items</Text>
+                <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>48 Items</Text>
             </View>
 
-            <View style={{width:"100%",alignItems:'center',marginTop:30,marginBottom:20}}>
-                <View style={{width:"80%"}}>
-                    <Text style={{color:"black",fontSize:20,marginBottom:5}}>Money Earned :-</Text>
+            <View style={{width:"100%",height:30,alignItems:'center',marginTop:10,flexDirection:"row",alignItems: 'center',borderBottomWidth: 0.5,borderBottomColor: "gainsboro",}}>
+                <View style={{marginLeft:20}}>
+                    <Text style={{color:"black",fontSize:15}}>Money Earned :-</Text>
                 </View>
-                <Text style={{color:"black",fontWeight:"bold"}}>$1634</Text>
+                <Text style={{color:"black",fontWeight:"bold",marginLeft:10,fontSize:15}}>$1634</Text>
             </View>
                
 
