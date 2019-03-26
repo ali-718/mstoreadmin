@@ -5,12 +5,15 @@ import Hr from "react-native-hr-component";
 import facebook from '../Assets/Images/facebook.png';
 import { Container, Header, Content, Button, Toast } from "native-base";
 
-export default class Login extends Component {
+export default class Signup extends Component {
 
   state={
     borderColor:"black",
+    Username:"",
     Email:"",
+    Phone:"",
     Password:"",
+    ConfirmPassword:"",
   }
 
   _didFocusSubscription;
@@ -27,9 +30,6 @@ export default class Login extends Component {
     this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>
       BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
     );
-    this.setState({
-      borderColor:"black"
-  })
   }
 
   onBackButtonPressAndroid = () => {
@@ -42,7 +42,7 @@ export default class Login extends Component {
     this._willBlurSubscription && this._willBlurSubscription.remove();
   }
 
-  LoginPress = () => {
+  SignupPress = () => {
     if(this.state.Email == "" || this.state.Password == "")
     {
       this.setState({
@@ -51,11 +51,11 @@ export default class Login extends Component {
       alert("Please Enter all Fields")
     }
     else{
-      this.setState({
-          borderColor:"black"
-      })
-      this.props.navigation.navigate("Home")
-      }
+    this.setState({
+        borderColor:"black"
+    })
+    this.props.navigation.navigate("Home")
+    }
     }
 
 
@@ -123,17 +123,15 @@ export default class Login extends Component {
       <Image source={Logo} style={style.insta}></Image>
       </View>
       <View style={style.txtView}>
-          <TextInput onChangeText={(val) => {this.setState({Email:val})}} value={this.state.Email} style={style.txtInput} placeholder="Username or Email" placeholderTextColor="#A9A9A9"></TextInput>
+          <TextInput onChangeText={(val) => {this.setState({Username:val})}} value={this.state.Username} style={style.txtInput} placeholder="Username" placeholderTextColor="#A9A9A9"></TextInput>
+          <TextInput onChangeText={(val) => {this.setState({Email:val})}} value={this.state.Email} style={style.txtInput} placeholder="Email" placeholderTextColor="#A9A9A9"></TextInput>
+          <TextInput onChangeText={(val) => {this.setState({Phone:val})}} value={this.state.Phone} style={style.txtInput} placeholder="Phone" placeholderTextColor="#A9A9A9"></TextInput>
           <TextInput secureTextEntry={true} onChangeText={(val) => {this.setState({Password:val})}} value={this.state.Password} style={style.txtInput} placeholder="Password" placeholderTextColor="#A9A9A9"></TextInput>
-      </View>
-      <View style={{width:"80%", alignItems:"flex-end"}}>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Forgot')}>
-        <Text style={{fontSize:13, marginLeft:30, fontWeight:"bold"}}>Forgot Password ?</Text>
-      </TouchableOpacity>
+          <TextInput secureTextEntry={true} onChangeText={(val) => {this.setState({ConfirmPassword:val})}} value={this.state.ConfirmPassword} style={style.txtInput} placeholder="Confirm Password" placeholderTextColor="#A9A9A9"></TextInput>
       </View>
       <View style={style.loginBtnView}>
-        <TouchableOpacity onPress={this.LoginPress} style={style.loginBtn}>
-          <Text style={{color:"white", fontWeight:"bold"}}>Login</Text>
+        <TouchableOpacity onPress={this.SignupPress} style={style.loginBtn}>
+          <Text style={{color:"white", fontWeight:"bold"}}>Signup</Text>
         </TouchableOpacity>
         <Hr text='Or' lineColor="#C0C0C0" width={1}/>
         <TouchableOpacity style={style.loginBtn}>
@@ -141,7 +139,7 @@ export default class Login extends Component {
         </TouchableOpacity>
       </View>
       <View style={style.bottomView}>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}><Text style={{paddingTop:"3%", fontSize:12,color:"black"}}>Dont have an account? <Text style={{fontWeight:"bold", color:"#42C2BF"}}>Signup</Text></Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}><Text style={{paddingTop:"3%", fontSize:12,color:"black"}}>Do you have an account? <Text style={{fontWeight:"bold", color:"#42C2BF"}}>Sign in</Text></Text></TouchableOpacity>
       </View>
       </View>
       </ScrollView>

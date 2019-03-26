@@ -3,14 +3,12 @@ import { Text, View, StyleSheet, Image, TextInput,BackHandler, TouchableOpacity,
 import Logo from '../Assets/Images/logo.png';
 import Hr from "react-native-hr-component";
 import facebook from '../Assets/Images/facebook.png';
-import { Container, Header, Content, Button, Toast } from "native-base";
 
-export default class Login extends Component {
+export default class Forgot extends Component {
 
   state={
     borderColor:"black",
     Email:"",
-    Password:"",
   }
 
   _didFocusSubscription;
@@ -27,9 +25,6 @@ export default class Login extends Component {
     this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>
       BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
     );
-    this.setState({
-      borderColor:"black"
-  })
   }
 
   onBackButtonPressAndroid = () => {
@@ -43,7 +38,7 @@ export default class Login extends Component {
   }
 
   LoginPress = () => {
-    if(this.state.Email == "" || this.state.Password == "")
+    if(this.state.Email == "")
     {
       this.setState({
         borderColor:"red"
@@ -54,7 +49,6 @@ export default class Login extends Component {
       this.setState({
           borderColor:"black"
       })
-      this.props.navigation.navigate("Home")
       }
     }
 
@@ -123,25 +117,16 @@ export default class Login extends Component {
       <Image source={Logo} style={style.insta}></Image>
       </View>
       <View style={style.txtView}>
-          <TextInput onChangeText={(val) => {this.setState({Email:val})}} value={this.state.Email} style={style.txtInput} placeholder="Username or Email" placeholderTextColor="#A9A9A9"></TextInput>
-          <TextInput secureTextEntry={true} onChangeText={(val) => {this.setState({Password:val})}} value={this.state.Password} style={style.txtInput} placeholder="Password" placeholderTextColor="#A9A9A9"></TextInput>
-      </View>
-      <View style={{width:"80%", alignItems:"flex-end"}}>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Forgot')}>
-        <Text style={{fontSize:13, marginLeft:30, fontWeight:"bold"}}>Forgot Password ?</Text>
-      </TouchableOpacity>
+          <TextInput onChangeText={(val) => {this.setState({Email:val})}} value={this.state.Email} style={style.txtInput} placeholder="Enter your email address" placeholderTextColor="#A9A9A9"></TextInput>
       </View>
       <View style={style.loginBtnView}>
         <TouchableOpacity onPress={this.LoginPress} style={style.loginBtn}>
-          <Text style={{color:"white", fontWeight:"bold"}}>Login</Text>
+          <Text style={{color:"white", fontWeight:"bold"}}>Send</Text>
         </TouchableOpacity>
         <Hr text='Or' lineColor="#C0C0C0" width={1}/>
-        <TouchableOpacity style={style.loginBtn}>
-          <Text style={{color:"white", fontWeight:"bold"}}><Image source={facebook} style={{borderRadius:5}}/> &nbsp; Login with Facebook</Text>
-        </TouchableOpacity>
       </View>
       <View style={style.bottomView}>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}><Text style={{paddingTop:"3%", fontSize:12,color:"black"}}>Dont have an account? <Text style={{fontWeight:"bold", color:"#42C2BF"}}>Signup</Text></Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}><Text style={{paddingTop:"3%", fontSize:12,color:"black"}}>Do have an account? <Text style={{fontWeight:"bold", color:"#42C2BF"}}>Sign in</Text></Text></TouchableOpacity>
       </View>
       </View>
       </ScrollView>

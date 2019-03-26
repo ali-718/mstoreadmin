@@ -9,7 +9,7 @@ export default class Splash extends Component {
     }
 
     componentWillMount(){
-        setTimeout(() => this.props.navigation.navigate('Home'),2000)
+        setTimeout(() => this.props.navigation.navigate('Login'),2000)
         BackHandler.addEventListener('hardwareBackPress',function () {return true})
     }
 
